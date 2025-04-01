@@ -53,25 +53,25 @@ export const  signup = async (req,res) => {
 
 export const  login = async (req,res) => {
 
-    const{email,password}= req.body // This line will get the email and password from the request body
+    const{email,password}= req.body; // This line will get the email and password from the request body
     try{
         const user = await User.findOne({email}); // This line will find the user in the database with the email provided in the request body
         if(!user){
             return res.status(400).json({message:"Invalid credentials"}); // This line will return a 400 error if the user is not found
         }
 
-        const isPasswordCorrect=await bcrypt.compare(password,user.password)
+        const isPasswordCorrect=await bcrypt.compare(password,user.password);
         if(!isPasswordCorrect){
             return res.status(400).json({message:"Invalid credentials"}); // This line will return a 400 error if the password is not correct
         }
 
-        generateToken(user._id,res) // This line will generate a token for the user and send it in the response
+        generateToken(user._id,res); // This line will generate a token for the user and send it in the response
         res.status(200).json({
             _id:user._id,
             fullName:user.fullName,
             email:user.email,
             profilePic:user.profilePic,
-        })
+        }); // This line will return the user object in the response
     } catch (error){
         console.log("Error in login controller", error.message);
         res.status(500).json({message:"Internal Server error"}); // This line will return a 500 error if there is a server error
@@ -80,8 +80,8 @@ export const  login = async (req,res) => {
 
 export const  logout = (req,res) => {
     try{
-        res.cookie("jwt","",{maxAge:0}) // This line will clear the cookie by setting the maxAge to 0
-        res.status(200).json({message:"Logged out successful"}) // This line will return a 200 status code and a message
+        res.cookie("jwt","",{maxAge:0}); // This line will clear the cookie by setting the maxAge to 0
+        res.status(200).json({message:"Logged out successful"}); // This line will return a 200 status code and a message
 
     } catch(error){
         console.log("Error in logout controller",error.message);
@@ -98,21 +98,21 @@ export const updateProfile = async (req,res) => {
             return res.status(400).json({message:"Profile pic is required"}); // This line will return a 400 error if the profile pic is not found
         }
 
-        await cloudinary.uploader.upload(profilePic);
-        const updatedUser= await User.findByIdAndUpdate(userId,{profilePic:uploadResponse.secure_url},{new:true}); // This line will update the user in the database with the new profile pic and return the updated user
+        const uploadResponse=await cloudinary.uploader.upload(profilePic); // This line will upload the profile pic to cloudinary and get the response
+        const updatedUser=await User.findByIdAndUpdate(userId,{profilePic:uploadResponse.secure_url},{new:true}); // This line will update the user in the database with the new profile pic and return the updated user
 
-        res.status(200).json(updatedUser); // This line will return the updated user in the response
-     }catch(error){
-        console.log("Error in updateProfile controller",error.message); // This line will log the error message to the console
-        res.status(500).json({message:"Internal Server error"}); // This line will return a 500 error if there is a server error
-     }
-}
+        res.status(200).json(updatedUser);
+    }catch(error){
+        console.log("Error in updateProfile controller",error.message); 
+        res.status(500).json({message:"Internal Server error"}); 
+    }
+};
 
 export const checkAuth = (req,res) => {
     try{
-        req.status(200).json(req.user); // This line will return the user object in the response
+        res.status(200).json(req.user); // Fixed: Changed req.status to res.status
     } catch(error){
         console.log("Error in checkAuth controller",error.message); // This line will log the error message to the console
         res.status(500).json({message:"Internal Server error"}); // This line will return a 500 error if there is a server error 
     }
-}
+};

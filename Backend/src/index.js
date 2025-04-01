@@ -1,32 +1,24 @@
-import dotenv from "dotenv";
-// Configure dotenv before any other imports
-dotenv.config();
+import express from "express"; // Importing express module
+import dotenv from "dotenv"; // Importing dotenv module to load environment variables
+import cookieParser from "cookie-parser"; // Importing cookie-parser module to parse cookies
 
-import express from "express";
-import { connectDB } from "./lib/db.js";
-import authRoutes from "./routes/auth.route.js";
 
-const app = express(); // This line creates an object of express that we can use to interact with the express server
+import {connectDB} from "./lib/db.js"; // Importing connectDB function to connect to the database
 
-// Validate critical environment variables
-if (!process.env.JWT_SECRET) {
-  console.error("Error: JWT_SECRET is not defined in environment variables");
-  process.exit(1);
-}
+import authroutes from "./routes/auth.route.js"; // Importing authroutes from auth.route.js file
 
-const PORT = process.env.PORT || 5001;
-app.use(express.json()) // This line tells the express server to use json data from the request body
+dotenv.config(); // Loading environment variables from .env file
 
-app.use("/api/auth", authRoutes) // This line tells the express server to use the authRoutes object when a request is made to the /api/auth route
+const app = express();
 
-// Connect to the database first, then start the server
-connectDB()
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log("Server is running on PORT:" + PORT);
-    });
-  })
-  .catch(err => {
-    console.error("Failed to start server:", err);
-    process.exit(1);
-  });
+const PORT = process.env.PORT;
+
+app.use(express.json()); // Middleware to parse JSON data from incoming requests
+app.use(cookieParser()); // Middleware to parse cookies from incoming requests
+
+app.use("/api/auth", authroutes); // Mounting authroutes on /api/auth path
+
+app.listen(PORT, () => {
+    console.log("server is running on PORT:"+PORT); // Logging the server port to the console
+    connectDB(); // Calling connectDB function to connect to the database
+});
