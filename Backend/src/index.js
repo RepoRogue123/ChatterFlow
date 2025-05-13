@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser"; // Importing cookie-parser module to p
 import {connectDB} from "./lib/db.js"; // Importing connectDB function to connect to the database
 
 import authroutes from "./routes/auth.route.js"; // Importing authroutes from auth.route.js file
+import messageRoutes from "./routes/message.route.js"; // Importing messageRoutes from message.route.js file
 
 dotenv.config(); // Loading environment variables from .env file
 
@@ -17,7 +18,7 @@ app.use(express.json()); // Middleware to parse JSON data from incoming requests
 app.use(cookieParser()); // Middleware to parse cookies from incoming requests
 
 app.use("/api/auth", authroutes); // Mounting authroutes on /api/auth path
-
+app.use("/api/message", messageRoutes); // Mounting authroutes on /api/message path
 app.listen(PORT, () => {
     console.log("server is running on PORT:"+PORT); // Logging the server port to the console
     connectDB(); // Calling connectDB function to connect to the database
