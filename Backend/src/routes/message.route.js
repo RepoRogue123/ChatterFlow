@@ -1,5 +1,10 @@
-import express form "express"; // Importing express module
+import express from "express"; // Importing express module
 import {protectRoute} from "../middleware/auth.middleware.js"; // Importing protectRoute middleware to protect routes
+import {
+  getUsersForSidebar,
+  getMessages,
+  sendMessage
+} from "../controllers/message.controller.js";
 
 const router = express.Router(); // Creating a new router object
 
