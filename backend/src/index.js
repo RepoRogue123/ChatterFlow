@@ -22,19 +22,22 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",                     
-      "https://chatter-flow-one.vercel.app/login",          
+      "https://chatter-flow-one.vercel.app/",          
     ],
     credentials: true,
   })
 );
 
+// API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
+// Serve static files only in production and only for non-API routes
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  app.get("*", (req, res) => {
+  // Only handle non-API routes
+  app.get(/^(?!\/api).*/, (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   });
 }
