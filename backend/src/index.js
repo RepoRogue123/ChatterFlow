@@ -21,8 +21,8 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: [
-      "http://localhost:5173",                     
-      "https://chatter-flow-one.vercel.app/",          
+      "http://localhost:5173",
+      "https://chatter-flow-mu.vercel.app"
     ],
     credentials: true,
   })
