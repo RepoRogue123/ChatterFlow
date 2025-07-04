@@ -1,6 +1,4 @@
-
 <img src="frontend/public/left_image.jpg" alt="ChatterFlow Banner" style="width:100%; max-height:300px; object-fit:cover;" />
-
 
 # 💬 ChatterFlow – Real-Time Full-Stack Chat Application
 
@@ -12,11 +10,12 @@ The application follows a modular and scalable architecture. The backend adheres
 
 ## 🌐 Live Website
 
-🔗 [https://chatter-flow-mu.vercel.app/login](https://chatter-flow-mu.vercel.app/login)
+Frontend: 🔗 [https://chatter-flow-mu.vercel.app/login](https://chatter-flow-mu.vercel.app/login)  
+Backend API: 🔗 [https://chatterflow-backend.onrender.com](https://chatterflow-backend.onrender.com)
 
 ---
 
-## 🧩 Project Overview
+## 🧹 Project Overview
 
 ChatterFlow enables users to engage in one-on-one real-time conversations with features like image sharing, secure login, and sleek user interface design. The backend is organized using MVC principles and integrated with Cloudinary for handling media. The frontend is built with React, styled using TailwindCSS, and optimized through Vite.
 
@@ -43,7 +42,7 @@ ChatterFlow enables users to engage in one-on-one real-time conversations with f
 
 ---
 
-## 🧪 Getting Started
+## 🧲 Getting Started
 
 ### ✅ Prerequisites
 
@@ -71,7 +70,8 @@ npm install
 npm run dev
 ```
 
-Visit `http://localhost:5173` to use the application locally.
+Visit `http://localhost:5173` to use the application locally.  
+Alternatively, the backend can also be accessed from: `https://chatterflow-backend.onrender.com`
 
 ---
 
@@ -92,10 +92,11 @@ CLOUDINARY_API_SECRET=your_api_secret
 
 ```env
 VITE_API_URL=http://localhost:4000
+# Or for production
+# VITE_API_URL=https://chatterflow-backend.onrender.com
 ```
 
 ---
-
 
 ## 📌 Roadmap
 
