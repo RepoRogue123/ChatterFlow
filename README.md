@@ -10,7 +10,7 @@ The application follows a modular and scalable architecture. The backend adheres
 
 ## 🌐 Live Website
 
-Frontend: 🔗 [https://chatter-flow-mu.vercel.app/login](https://chatter-flow-mu.vercel.app/login)  
+Frontend: 🔗 [https://chatter-flow-mu.vercel.app](https://chatter-flow-mu.vercel.app)  
 Backend API: 🔗 [https://chatterflow-backend.onrender.com](https://chatterflow-backend.onrender.com)
 
 ---
