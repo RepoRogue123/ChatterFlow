@@ -1,3 +1,7 @@
+
+<img src="frontend/public/left_image.jpg" alt="ChatterFlow Banner" style="width:100%; max-height:300px; object-fit:cover;" />
+
+
 # 💬 ChatterFlow – Real-Time Full-Stack Chat Application
 
 ChatterFlow is a fully responsive, real-time chat application designed to deliver seamless messaging experiences over the web. Built with the MERN stack (MongoDB, Express.js, React, Node.js), ChatterFlow blends powerful backend APIs with a polished frontend UI, providing users with the ability to communicate instantly and securely. It supports real-time one-on-one messaging via WebSockets, media sharing through Cloudinary, and a modern, dynamic interface powered by Vite and TailwindCSS.
@@ -92,31 +96,6 @@ VITE_API_URL=http://localhost:4000
 
 ---
 
-## 🖼️ Screenshots
-
-Here are some visual highlights of the ChatterFlow application in action.
-
-### 🔐 Login & Registration Page
-<!-- ![Login Page](docs/screenshots/login.png) -->
-*Placeholder: Add a screenshot showing the login and signup UI.*
-
-### 💬 Real-Time Chat Interface
-<!-- ![Chat Interface](docs/screenshots/chat.png) -->
-*Placeholder: Add a screenshot showcasing the real-time messaging between two users.*
-
-### 🖼️ Image Upload & Media Handling
-<!-- ![Media Upload](docs/screenshots/media.png) -->
-*Placeholder: Add an image showing image upload support through Cloudinary.*
-
-### 🌙 Dark Mode Theme
-<!-- ![Dark Mode](docs/screenshots/darkmode.png) -->
-*Placeholder: Add an image highlighting the responsive dark mode UI.*
-
-### 📊 Message Skeletons and Loaders
-<!-- ![Skeletons](docs/screenshots/skeletons.png) -->
-*Placeholder: Add a screenshot showing the loading skeletons for UX smoothness.*
-
----
 
 ## 📌 Roadmap
 
@@ -150,4 +129,4 @@ git push origin feature/my-feature
 
 ## 📬 Contact
 
-Feel free to reach out via [LinkedIn](https://www.linkedin.com/in/your-profile/) or [GitHub](https://github.com/reporogue123).
+Feel free to reach out via [LinkedIn](https://www.linkedin.com/in/atharva-honparkhe-6ba05a2aa/) or [GitHub](https://github.com/reporogue123).
